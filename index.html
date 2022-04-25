@@ -1,72 +1,28 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, user-scalable=no, initial-scale=1.0 ,maximum-scale=1.0,minimum-scale-1.0"
-    />
-    <title>我的画板</title>
-    <style>
-      body {
-        margin: 0;
-      }
-      #canvas {
-        background: green;
-        height: 100vh;
-        position: relative;
-      }
-    </style>
-  </head>
+  <link rel="stylesheet" type="text/css" href="./style.css" charset="utf-8" />
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0 ,maximum-scale=1.0,minimum-scale=1.0"
+  />
+  <title>我的画板</title>
   <body>
-    <div id="canvas"></div>
+    <canvas id="xxx" width="300" height="300"></canvas>
+    <div id="actions" class="actions">
+      <svg id="pen" class="active icon">
+        <use xlink:href="#icon-pen"></use>
+      </svg>
+      <svg id="eraser" class="icon">
+        <use xlink:href="#icon-erase"></use>
+      </svg>
+    </div>
+    <ol class="colors">
+      <li id="red" class="red" active></li>
+      <li id="green" class="green"></li>
+      <li id="blue" class="blue"></li>
+    </ol>
+    <script type="text/javascript" src="./main.js"></script>
+    <script src="//at.alicdn.com/t/font_3357948_jdm0h8rz03.js"></script>
   </body>
 </html>
-<script>
-  var div = document.getElementById('canvas');
-  var painting = false;
-  // 按下去鼠标
-  div.onmousedown = function (a) {
-    console.log('1');
-    painting = true;
-    var x = a.clientX;
-    var y = a.clientY;
-    var divA = document.createElement('div');
-    divA.style =
-      'width:6px;height:6px;' +
-      'background:black;border-radius:3px;' +
-      'position: absolute;left:' +
-      (x - 3) +
-      'px;' +
-      'top:' +
-      (y - 3) +
-      'px;';
-    div.appendChild(divA);
-  };
-
-  //动鼠标
-  div.onmousemove = function (a) {
-    if (painting) {
-      var x = a.clientX;
-      var y = a.clientY;
-      var divA = document.createElement('div');
-      divA.style =
-        'width:6px;height:6px;' +
-        'background:black;border-radius:3px;' +
-        'position: absolute;left:' +
-        (x - 3) +
-        'px;' +
-        'top:' +
-        (y - 3) +
-        'px;';
-      console.log('divA: ', divA);
-      div.appendChild(divA);
-    } else {
-    }
-  };
-
-  //松开鼠标
-  div.onmouseup = function (z) {
-    painting = false;
-  };
-</script>
