@@ -17,10 +17,9 @@ ol {
   display: block;
 }
 body {
-  margin: 0px;
+  overflow: hidden;
 }
-html {
-}
+
 .actions {
   position: fixed;
   top: 0;
